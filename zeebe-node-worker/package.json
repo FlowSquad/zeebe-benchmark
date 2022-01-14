@@ -1,5 +1,5 @@
 {
-  "name": "dm-worker",
+  "name": "zeebe-node-worker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
