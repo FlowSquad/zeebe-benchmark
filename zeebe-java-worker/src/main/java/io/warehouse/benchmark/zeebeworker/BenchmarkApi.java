@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
 
 @RestController
 @RequiredArgsConstructor
-@Tag(name = "Order Controller")
+@Tag(name = "Benchmark API")
 @RequestMapping("/api/benchmark")
 public class BenchmarkApi {
 
