@@ -15,22 +15,19 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class BenchmarkProcessClient {
 
-    @ZeebeWorker(type = "firstJob")
+    @ZeebeWorker(type = "firstJob", autoComplete = true)
     public void koWelle(final JobClient client, final ActivatedJob job) {
         log.info("Type: {}, Key: {}", job.getType(), job.getKey());
-        this.completeJob(client, job, Map.of());
     }
 
-    @ZeebeWorker(type = "secondJob")
+    @ZeebeWorker(type = "secondJob", autoComplete = true)
     public void secondJob(final JobClient client, final ActivatedJob job) {
         log.info("Type: {}, Key: {}", job.getType(), job.getKey());
-        this.completeJob(client, job, Map.of());
     }
 
-    @ZeebeWorker(type = "finish")
+    @ZeebeWorker(type = "finish", autoComplete = true)
     public void finish(final JobClient client, final ActivatedJob job) {
         log.info("Type: {}, Key: {}", job.getType(), job.getKey());
-        this.completeJob(client, job, Map.of());
     }
 
     private void completeJob(final JobClient client, final ActivatedJob job, final Map<String, Object> variables) {
