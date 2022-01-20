@@ -7,9 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -30,11 +27,5 @@ public class BenchmarkProcessClient {
         log.info("Type: {}, Key: {}", job.getType(), job.getKey());
     }
 
-    private void completeJob(final JobClient client, final ActivatedJob job, final Map<String, Object> variables) {
-        client.newCompleteCommand(job.getKey())
-                .variables(variables)
-                .send()
-                .join(1, TimeUnit.MINUTES);
-    }
 
 }
